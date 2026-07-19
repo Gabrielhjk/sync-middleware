@@ -1,7 +1,7 @@
 from Connectors.gestao_click import GestaoClick
 
 product = {
-    "nome": "Televisão Smart TV - LED 367",
+    "nome": "Televisão Smart TV - LED 32",
     "codigo_interno": "32355564390",
     "codigo_barra": "98412200100",
     "largura": "80",
@@ -30,7 +30,69 @@ product = {
     ]
   }
 
+product_sale = {
+    "tipo": "produto",
+    "cliente_id": "60058779",
+    "vendedor_id": "1380647",
+    "data": "2026-07-19",
+    "prazo_entrega": "2026-07-19",
+    "situacao_id": "9275087",
+    "nome_situacao": "Em andamento",
+    "transportadora_id": "",
+    "centro_custo_id": "",
+    "valor_frete": "5.00",
+    "condicao_pagamento": "a_vista",
+    "pagamentos": [
+        {
+            "pagamento": {
+                "data_vencimento": "2026-07-19",
+                "valor": "562.99",
+                "forma_pagamento_id": "6677195",
+                "nome_forma_pagamento": "PIX",
+                "plano_contas_id": "35984640",
+                "nome_plano_conta": "Vendas de produtos",
+                "observacao": ""
+            }
+        }
+    ],
+    "produtos": [
+        {
+            "produto": {
+                "produto_id": "95651099",
+                "variacao_id": "167093999",
+                "detalhes": "",
+                "quantidade": "1.00",
+                "valor_venda": "550.99",
+                "tipo_desconto": "R$",
+                "desconto_valor": "",
+                "desconto_porcentagem": ""
+            }
+        }
+    ],
+    "servicos": [
+        {
+            "servico": {
+                "id": "1316689436",
+                "servico_id": "95651121",
+                "nome_servico": "montar",
+                "detalhes": "",
+                "sigla_unidade": "",
+                "quantidade": "1.00",
+                "tipo_valor_id": "",
+                "nome_tipo_valor": "",
+                "valor_venda": "7.00",
+                "tipo_desconto": "R$",
+                "desconto_valor": "0",
+                "desconto_porcentagem": "0"
+            }
+        }
+    ]
+}
+
+
 api = GestaoClick()
+api.update_sales(product_sale, 385316219)
+# api.get_sales()
 # api.get_fornecedor()
 # api.get_products()
-api.create_product(product)
+# api.create_product(product)

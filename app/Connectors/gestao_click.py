@@ -12,7 +12,7 @@ class GestaoClick:
             "secret-access-token": f"{os.getenv('SECRET_ACCSESS_TOKEN')}"
         }
     
-    
+    # teste para listar fornecedor
     def get_fornecedor(self):
         response = requests.get(f"{self.url}/fornecedores", headers=self.headers)
         print(response.json())
@@ -26,5 +26,17 @@ class GestaoClick:
     def  create_product(self, product):
         product = requests.post(f"{self.url}/produtos", json=product, headers=self.headers)
         return product
+    
+    # teste para listar todas a vendas
+    def get_sales(self):
+        response = requests.get(f"{self.url}/vendas", headers=self.headers)
+        print(response.json())
+
+    def update_sales(self, product, id):
+        product_sales = requests.put(f"{self.url}/vendas/{id}", json=product, headers=self.headers)
+        print(product_sales)
+        print(product_sales.text)
+        return product_sales
+
         
         
