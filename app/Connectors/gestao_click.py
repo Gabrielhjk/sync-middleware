@@ -4,13 +4,27 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class gestao_click:
+class GestaoClick:
     def __init__(self):
         self.url = os.getenv('URL_BASE_GESTAO_CLICK')
-        self.header = {
-            "Authorization": f"Bearer {os.getenv('ACCESS_TOKEN')}, {os.getenv('SECRET_ACCSESS_TOKEN')}"
+        self.headers = {
+            "access-token": f"{os.getenv('ACCESS_TOKEN')}",
+            "secret-access-token": f"{os.getenv('SECRET_ACCSESS_TOKEN')}"
         }
-        
-    # def  create_product(self, product):
+    
+    
+    def get_fornecedor(self):
+        response = requests.get(f"{self.url}/fornecedores", headers=self.headers)
+        print(response.json())
+
+    # testando conexao para puxar produtos
+    def get_products(self):
+        response = requests.get(f"{self.url}/produtos", headers=self.headers)
+        print(response.json())
+
+    # teste para criar produto
+    def  create_product(self, product):
+        product = requests.post(f"{self.url}/produtos", json=product, headers=self.headers)
+        return product
         
         
