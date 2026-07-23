@@ -1,6 +1,7 @@
-from Connectors.gestao_click import GestaoClick
-from estuturas_apis import *
+from Service.gestao_clickService import gestao_click_service
 
-api = GestaoClick()
-api.update_sales(product_sale, 385316219)
-# api.create_product(product)
+api = gestao_click_service()
+
+api.listar()
+
+
